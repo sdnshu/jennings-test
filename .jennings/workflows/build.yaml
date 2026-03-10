@@ -1,0 +1,22 @@
+# .jennings/workflows/build.yaml
+#
+# This file lives in your repo at .jennings/workflows/
+# Jennings picks it up automatically.
+
+name: Build & Test
+
+# Docker image all steps run inside
+image: node:20-alpine
+
+steps:
+  - name: Install dependencies
+    run: npm ci
+
+  - name: Lint
+    run: npm run lint
+
+  - name: Run tests
+    run: npm test
+
+  - name: Build
+    run: npm run build
