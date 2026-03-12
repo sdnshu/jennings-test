@@ -1,11 +1,8 @@
 # .jennings/workflows/build.yaml
-#
-# This file lives in your repo at .jennings/workflows/
-# Jennings picks it up automatically.
-
 name: Build & Test
 
-# Docker image all steps run inside
+on: manual  # trigger type — required by Jennings
+
 image: oven/bun:alpine
 
 steps:
@@ -16,7 +13,7 @@ steps:
     run: bun run lint
 
   # - name: Run tests
-    # run: npm test
+  #   run: bun test
 
   - name: Build
-    run: npm run build
+    run: bun run build
